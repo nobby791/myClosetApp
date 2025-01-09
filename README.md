@@ -1,16 +1,37 @@
-# startapp
+# 洋服管理アプリ
+#### 概要
+洋服管理アプリは、ユーザーが所有する洋服を登録し、天気や気温に応じた最適なコーディネートをAIが提案するPC向けアプリケーションです。
 
-A new Flutter project.
+#### 主な機能
+- 洋服の登録: ブランド、ジャンル（トップス、ボトムスなど）、色を入力して管理可能。
+- クローゼット管理: 登録した洋服を一覧表示。
+- AIによるコーディネート提案: OpenWeatherAPIから取得した天気情報を元に、Google Gemini APIが提案する最適なコーディネートを表示。
 
-## Getting Started
+#### ディレクトリ構成
+lib  
+├── main.dart                     // アプリのエントリーポイント  
+├── ClosetScreen.dart             // クローゼット管理画面  
+├── ClothingUploadScreen.dart     // 洋服登録画面  
+├── CoordinateSuggestionScreen.dart // コーディネート提案画面  
+├── firebase_options.dart         // Firebaseの設定ファイル  
+pubspec.yaml                      // 依存パッケージと環境設定  
+#### 技術スタック
+- プログラミング言語：Dart
+- フレームワーク: Flutter
+- データベース: Firebase Firestore
+- 天気情報取得: OpenWeatherAPI
+- AIコーディネート提案: Google Gemini API
+#### 画面の説明
 
-This project is a starting point for a Flutter application.
+- #### ClothingUploadScreen
+洋服を登録するフォーム画面。ブランド、ジャンル、色を入力可能。
+登録後、Firestoreにデータが保存されます。
 
-A few resources to get you started if this is your first Flutter project:
+- #### ClosetScreen
+Firestoreに登録された洋服の一覧を表示。
+各洋服のブランド、ジャンル、色をカード形式で確認可能。
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- #### CoordinateSuggestionScreen
+天気や気温を取得し、Firestoreに登録された洋服データを基にAIがコーディネートを提案。
+OpenWeatherAPIから天気情報を取得。
+手動で天気データを入力してコーディネートを提案する機能も実装。
